@@ -15,5 +15,23 @@ export default function MovieReview() {
     });
   }, [idMovie]);
 
-  return <h2>Review</h2>;
+  return (
+    <>
+      {movie.results &&
+        movie.results.map((el) => {
+          return (
+            <div key={el.id}>
+              <h2>{el.author}</h2>
+              <p>
+                {" "}
+                <a href={el.url} target="_blank" rel="noreferrer">
+                  Review all
+                </a>{" "}
+              </p>
+              <p>{el.content}</p>
+            </div>
+          );
+        })}
+    </>
+  );
 }
