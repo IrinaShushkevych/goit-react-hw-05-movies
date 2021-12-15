@@ -1,0 +1,33 @@
+.link {
+  color: wheat;
+  background-color: transparent;
+  transform: scale(1);
+  transition: 250ms linear;
+}
+
+.link:hover,
+.link:focus {
+  color: blue;
+}
+
+.activeLink {
+  position: relative;
+  color: rgb(20, 194, 247);
+  /* background-color: blue; */
+}
+
+.activeLink::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 2px;
+  border-radius: 5px;
+  background-color: rgb(20, 194, 247);
+}
+
+.activeLink:hover,
+.activeLink:focus {
+  color: blue;
+}
