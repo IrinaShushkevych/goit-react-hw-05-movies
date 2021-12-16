@@ -10,7 +10,7 @@ export default function HomePage() {
 
   useEffect(() => {
     fetchTrendidngMovies().then((data) => {
-      setMovies([...movies, ...data.results]);
+      setMovies((prevState) => [...prevState, ...data.results]);
     });
   }, [page]);
 

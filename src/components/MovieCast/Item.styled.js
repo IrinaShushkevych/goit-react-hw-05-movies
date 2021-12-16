@@ -1,7 +1,9 @@
 import styled from "@emotion/styled";
 
 export const Item = styled.li`
-  width: 100%;
+  // width: 100%;
+  width: calc((100% - 2 * 30px) / 2);
+  margin-right: 30px;
   max-width: 500px;
   overflow: hidden;
   margin-bottom: 30px;
@@ -13,13 +15,13 @@ export const Item = styled.li`
   transition: 250ms linear;
 
   @media screen and (min-width: 768px) {
-    width: calc((100% - 3 * 30px) / 3);
+    width: calc((100% - 4 * 30px) / 4);
     margin-right: 30px;
   }
 
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-    box-shadow: 16px 14px 16px 0px rgb(113 131 136 / 60%);
-  }
+  // &:hover,
+  // &:focus {
+  //   transform: scale(1.1);
+  //   box-shadow: 16px 14px 16px 0px rgb(113 131 136 / 60%);
+  // }
 `;

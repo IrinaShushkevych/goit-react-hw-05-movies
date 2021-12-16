@@ -1,21 +1,27 @@
-import { useState } from "react";
+import { useNavigate, useLocation, Routes, Route } from "react-router";
 import MovieInfo from "../components/MovieInfo";
 import Button from "../components/Button";
 import MovieReview from "../components/MovieReview";
 import MovieCast from "../components/MovieCast";
 
 export default function MovieDetailsPage() {
-  const [typeInfo, setTypeInfo] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const onClickButton = (type) => {
-    if (typeInfo === type) {
-      setTypeInfo("");
-      return;
-    }
-    setTypeInfo(type);
+    const loc = location.state ? location.state.prevLoc : location.pathname;
+    navigate(`${loc}/${type}`, { state: { prevLoc: loc } });
   };
 
   return (
     <>
+      <Button
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        {"<--"} GoBack
+      </Button>
       <MovieInfo />
       <div>
         <Button
@@ -33,8 +39,11 @@ export default function MovieDetailsPage() {
           Review
         </Button>
       </div>
-      {typeInfo === "cast" && <MovieCast />}
-      {typeInfo === "review" && <MovieReview />}
+
+      <Routes>
+        <Route path="cast" element={<MovieCast />} />
+        <Route path="review" element={<MovieReview />} />
+      </Routes>
     </>
   );
 }

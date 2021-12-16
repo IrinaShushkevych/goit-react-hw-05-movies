@@ -2,61 +2,70 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 import { fetchMovieCredits } from "../../services/api";
-import MoviesPage from "../../views/MoviesPage";
+import { List } from "./List.styled";
+import { Item } from "./Item.styled";
+import { Image } from "./Img.styled";
+import noImg from "../../images/unnamed.jpg";
 
 export default function MovieCast() {
   const idMovie = useParams().id;
   const [movie, setMovie] = useState({});
-
+  console.log(movie);
   useEffect(() => {
     fetchMovieCredits(idMovie).then((data) => {
-      console.log(data);
       setMovie(data);
-      console.log(movie);
     });
   }, [idMovie]);
   return (
     <>
       <h2>Cast</h2>
-      <ul>
+      <List>
         {movie.cast &&
           movie.cast.map((el, idx) => {
             return (
-              <li key={idx}>
-                {el.profile_path && (
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${el.profile_path}`}
-                    width="100"
-                  />
-                )}
+              <Item key={idx}>
+                <Image
+                  src={
+                    el.profile_path
+                      ? `https://image.tmdb.org/t/p/w500${el.profile_path}`
+                      : noImg
+                  }
+                  width="100"
+                  alt={el.name}
+                />
                 <h3>{el.name}</h3>
                 <h4>{el.character}</h4>
                 <p>Popularity: {el.popularity}</p>
-              </li>
+              </Item>
             );
           })}
-      </ul>
+      </List>
       <h2>Crew</h2>
-      <ul>
+      <List>
         {movie.crew &&
           movie.crew.map((el, idx) => {
+            if (!el.profile_path) console.log(noImg);
             return (
-              <li key={idx}>
-                {el.profile_path && (
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${el.profile_path}`}
-                    width="100"
-                  />
-                )}
+              <Item key={idx}>
+                <Image
+                  src={
+                    el.profile_path
+                      ? `https://image.tmdb.org/t/p/w500${el.profile_path}`
+                      : noImg
+                  }
+                  width="100"
+                  alt={el.name}
+                />
+
                 <h3>{el.name}</h3>
                 <h4>
                   {el.department}, {el.job}
                 </h4>
                 <p>Popularity: {el.popularity}</p>
-              </li>
+              </Item>
             );
           })}
-      </ul>
+      </List>
     </>
   );
 }

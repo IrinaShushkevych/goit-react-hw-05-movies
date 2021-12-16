@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { fetchSearchMovies } from "../services/api";
 import MovieList from "../components/MovieList/MovieList";
 import Searchbar from "../components/Searchbar";
 
 export default function MoviesPage() {
-  const [query, setQuery] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const query = new URLSearchParams(location.search).get("query");
   const [movies, setMovies] = useState([]);
 
   const onSetQuery = (val) => {
     if (val !== query) {
-      setQuery(val);
       setMovies([]);
+      navigate({ ...location, search: `query=${val}` });
     }
   };
 
@@ -20,7 +23,7 @@ export default function MoviesPage() {
       return;
     }
     fetchSearchMovies(query).then((data) => {
-      setMovies([...movies, ...data.results]);
+      setMovies((prevState) => [prevState, ...data.results]);
     });
   }, [query]);
 

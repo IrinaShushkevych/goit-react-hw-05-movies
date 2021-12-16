@@ -4,6 +4,7 @@ import { fetchMovieDetails } from "../../services/api";
 
 import noImg from "../../images/no-image.jpg";
 import { ContainerInfo } from "./ContainerInfo.styled";
+import { Image } from "./Image.styled";
 
 export default function MovieInfo() {
   const idMovie = useParams().id;
@@ -12,7 +13,6 @@ export default function MovieInfo() {
   useEffect(() => {
     fetchMovieDetails(idMovie).then((data) => {
       setMovie(data);
-      console.log(movie);
     });
   }, [idMovie]);
 
@@ -23,7 +23,7 @@ export default function MovieInfo() {
     movie;
   return (
     <ContainerInfo>
-      <img
+      <Image
         src={
           poster_path
             ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
@@ -34,12 +34,13 @@ export default function MovieInfo() {
       />
       <div>
         <h1>{original_name ? original_name : original_title}</h1>
-        <h2>Vote average: </h2>
-        <p>{vote_average}</p>
+        <h3>
+          Vote average: <span>{vote_average}</span>
+        </h3>
 
-        <h2>Genres: </h2>
+        <h3>Genres: </h3>
         <p>{genres}</p>
-        <h2>Overview: </h2>
+        <h3>Overview: </h3>
         <p>{overview}</p>
       </div>
     </ContainerInfo>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { Image } from "./Img.styled";
 import noImg from "../../images/no-image.jpg";
 import { Title } from "./Title.styled";
@@ -20,3 +21,11 @@ export default function MovieCard({ movie }) {
     </Link>
   );
 }
+
+MovieCard.propTypes = {
+  movie: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};

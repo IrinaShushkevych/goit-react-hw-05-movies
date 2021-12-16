@@ -9,9 +9,7 @@ export default function MovieReview() {
 
   useEffect(() => {
     fetchMovieReviews(idMovie).then((data) => {
-      console.log(data);
       setMovie(data);
-      console.log(movie);
     });
   }, [idMovie]);
 

@@ -11,6 +11,7 @@ function Searchbar({ onSetQuery }) {
     const val = query.trim()
     if (val) {
       onSetQuery(val)
+      setQuery('')
     }
   }
 
@@ -20,7 +21,7 @@ function Searchbar({ onSetQuery }) {
         <button type="submit" className={s.button}>
           <ImageSearchIcon
             className={s.icon}
-            style={{ width: '90%', height: '90%', fill: 'blue' }}
+            style={{ width: '90%', height: '90%', fill: 'rgb(20, 194, 247)' }}
           />
         </button>
 
