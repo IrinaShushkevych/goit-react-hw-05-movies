@@ -2,6 +2,7 @@ import { useState } from 'react'
 import PropTypes from 'prop-types'
 import ImageSearchIcon from '@mui/icons-material/ImageSearch'
 import s from './Searchbar.module.css'
+import { onWarning } from '../../services/messages'
 
 function Searchbar({ onSetQuery }) {
   const [query, setQuery] = useState('')
@@ -12,6 +13,8 @@ function Searchbar({ onSetQuery }) {
     if (val) {
       onSetQuery(val)
       setQuery('')
+    } else {
+      onWarning('Please, enter a search query!')
     }
   }
 

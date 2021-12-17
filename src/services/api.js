@@ -9,7 +9,6 @@ const fetching = (url) => {
       return response.data;
     } else {
       Promise.reject(new Error("No such information"));
-      //   return null
     }
   });
 };
@@ -31,13 +30,11 @@ export const fetchMovieDetails = (id) => {
 
 export const fetchMovieCredits = (id) => {
   const url = `${BASE_URL}/movie/${id}/credits?${keyAPI}`;
-  console.log(url);
   return fetching(url);
 };
 
 export const fetchMovieReviews = (id) => {
   const url = `${BASE_URL}/movie/${id}/reviews?${keyAPI}`;
-  console.log(url);
   return fetching(url);
 };
 

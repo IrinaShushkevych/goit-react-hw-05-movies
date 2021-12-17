@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { fetchSearchMovies } from "../services/api";
+import { onError } from "../services/messages";
 import MovieList from "../components/MovieList/MovieList";
 import Searchbar from "../components/Searchbar";
 
@@ -18,14 +19,18 @@ export default function MoviesPage() {
   };
 
   useEffect(() => {
-    console.log("query", query);
     if (query === "") {
       setMovies([]);
       return;
     }
-    fetchSearchMovies(query).then((data) => {
-      setMovies((prevState) => [prevState, ...data.results]);
-    });
+    fetchSearchMovies(query)
+      .then((data) => {
+        console.log(data);
+        setMovies((prevState) => [prevState, ...data.results]);
+      })
+      .catch((error) => {
+        onError(error.message);
+      });
   }, [query]);
 
   return (

@@ -15,6 +15,7 @@ export const TitleParagraph = styled.p`
   margin: 0;
   margin-bottom: 10px;
 `;
+
 export const Text = styled.span`
   font-size: 14px;
 `;
