@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 
 export const Item = styled.li`
   // width: 100%;
+  display: flex;
+  flex-direction: column;
   width: calc((100% - 2 * 30px) / 2);
   margin-right: 30px;
   max-width: 500px;
@@ -15,6 +17,10 @@ export const Item = styled.li`
   transition: 250ms linear;
 
   @media screen and (min-width: 768px) {
+    width: calc((100% - 3 * 30px) / 3);
+    margin-right: 30px;
+  }
+  @media screen and (min-width: 1024px) {
     width: calc((100% - 4 * 30px) / 4);
     margin-right: 30px;
   }

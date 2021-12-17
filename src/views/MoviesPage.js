@@ -7,7 +7,7 @@ import Searchbar from "../components/Searchbar";
 export default function MoviesPage() {
   const location = useLocation();
   const navigate = useNavigate();
-  const query = new URLSearchParams(location.search).get("query");
+  const query = new URLSearchParams(location.search).get("query") ?? "";
   const [movies, setMovies] = useState([]);
 
   const onSetQuery = (val) => {
@@ -18,6 +18,7 @@ export default function MoviesPage() {
   };
 
   useEffect(() => {
+    console.log("query", query);
     if (query === "") {
       setMovies([]);
       return;
