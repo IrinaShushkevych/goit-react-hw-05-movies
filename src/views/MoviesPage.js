@@ -10,12 +10,18 @@ export default function MoviesPage() {
   const navigate = useNavigate();
   const query = new URLSearchParams(location.search).get("query") ?? "";
   const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
 
   const onSetQuery = (val) => {
     if (val !== query) {
       setMovies([]);
+      setPage(1);
       navigate({ ...location, search: `query=${val}` });
     }
+  };
+
+  const setNextPage = () => {
+    setPage((prevPage) => prevPage + 1);
   };
 
   useEffect(() => {
@@ -23,20 +29,20 @@ export default function MoviesPage() {
       setMovies([]);
       return;
     }
-    fetchSearchMovies(query)
+    console.log(page, query);
+    fetchSearchMovies(query, page)
       .then((data) => {
-        console.log(data);
-        setMovies((prevState) => [prevState, ...data.results]);
+        setMovies((prevState) => [...prevState, ...data.results]);
       })
       .catch((error) => {
         onError(error.message);
       });
-  }, [query]);
+  }, [query, page]);
 
   return (
     <>
       <Searchbar onSetQuery={onSetQuery} />
-      {movies && <MovieList list={movies} />}
+      {movies && <MovieList list={movies} onNextPage={setNextPage} />}
     </>
   );
 }

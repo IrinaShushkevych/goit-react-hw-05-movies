@@ -9,8 +9,12 @@ export default function HomePage() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
 
+  const setNextPage = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
+
   useEffect(() => {
-    fetchTrendidngMovies()
+    fetchTrendidngMovies(page)
       .then((data) => {
         setMovies((prevState) => [...prevState, ...data.results]);
       })
@@ -19,5 +23,5 @@ export default function HomePage() {
       });
   }, [page]);
 
-  return <>{movies && <MovieList list={movies} />}</>;
+  return <>{movies && <MovieList list={movies} onNextPage={setNextPage} />}</>;
 }

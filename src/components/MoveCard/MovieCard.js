@@ -23,9 +23,7 @@ export default function MovieCard({ movie }) {
 }
 
 MovieCard.propTypes = {
-  movie: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    })
-  ).isRequired,
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }).isRequired,
 };

@@ -13,13 +13,13 @@ const fetching = (url) => {
   });
 };
 
-export const fetchTrendidngMovies = () => {
-  const url = `${BASE_URL}/trending/all/week?${keyAPI}`;
+export const fetchTrendidngMovies = (page) => {
+  const url = `${BASE_URL}/trending/all/week?page=${page}&${keyAPI}`;
   return fetching(url);
 };
 
-export const fetchSearchMovies = (query) => {
-  const url = `${BASE_URL}/search/movie?query=${query}&${keyAPI}`;
+export const fetchSearchMovies = (query, page) => {
+  const url = `${BASE_URL}/search/movie?query=${query}&page=${page}&${keyAPI}`;
   return fetching(url);
 };
 

@@ -17,11 +17,11 @@ export const Item = styled.li`
   transition: 250ms linear;
 
   @media screen and (min-width: 768px) {
-    width: calc((100% - 3 * 30px) / 3);
+    width: calc((100% - 4 * 30px) / 4);
     margin-right: 30px;
   }
   @media screen and (min-width: 1024px) {
-    width: calc((100% - 4 * 30px) / 4);
+    width: calc((100% - 6 * 30px) / 6);
     margin-right: 30px;
   }
 
