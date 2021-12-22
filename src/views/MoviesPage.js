@@ -29,7 +29,6 @@ export default function MoviesPage() {
       setMovies([]);
       return;
     }
-    console.log(page, query);
     fetchSearchMovies(query, page)
       .then((data) => {
         setMovies((prevState) => [...prevState, ...data.results]);

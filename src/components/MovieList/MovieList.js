@@ -8,12 +8,11 @@ import { useEffect } from "react";
 export default function MovieList({ list, onNextPage }) {
   const [ref, inView] = useInView({
     ttriggerOnce: true,
-    rootMargin: "-50px",
+    rootMargin: "-100px",
   });
 
   useEffect(() => {
     if (inView) {
-      console.log("next ");
       onNextPage();
     }
   }, [inView]);
@@ -35,4 +34,5 @@ MovieList.propTypes = {
       id: PropTypes.number.isRequired,
     })
   ),
+  onNextPage: PropTypes.func.isRequired,
 };

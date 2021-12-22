@@ -1,12 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Image } from "./Img.styled";
 import noImg from "../../images/no-image.jpg";
 import { Title } from "./Title.styled";
 
 export default function MovieCard({ movie }) {
+  const location = useLocation();
+
   return (
-    <Link to={`/movies/${movie.id}`}>
+    <Link
+      to={`/movies/${movie.id}`}
+      state={{ goBackPage: location.pathname, goBackSearch: location.search }}
+    >
       <Image
         src={
           movie.poster_path

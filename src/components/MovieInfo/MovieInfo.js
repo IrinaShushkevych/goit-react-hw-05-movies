@@ -19,8 +19,10 @@ export default function MovieInfo() {
   const genres = movie.genres
     ? movie.genres.map((el) => el.name).join(", ")
     : [];
+
   const { poster_path, original_name, original_title, vote_average, overview } =
     movie;
+
   return (
     <ContainerInfo>
       <Image

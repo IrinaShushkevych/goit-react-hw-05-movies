@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 import { fetchMovieReviews } from "../../services/api";
-import { TitleParagraph, Text } from "./Title.styled";
+import { Title, TitleParagraph, Text } from "./Title.styled";
 
 export default function MovieReview() {
   const idMovie = useParams().id;
@@ -16,6 +16,7 @@ export default function MovieReview() {
 
   return (
     <>
+      <Title>Reviews</Title>
       {movie.results &&
         movie.results.map((el) => {
           return (

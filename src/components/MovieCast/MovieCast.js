@@ -10,11 +10,13 @@ import Cast from "../Cast";
 export default function MovieCast() {
   const idMovie = useParams().id;
   const [movie, setMovie] = useState({});
+
   useEffect(() => {
     fetchMovieCredits(idMovie).then((data) => {
       setMovie(data);
     });
   }, [idMovie]);
+
   return (
     <>
       <Title>Cast</Title>
