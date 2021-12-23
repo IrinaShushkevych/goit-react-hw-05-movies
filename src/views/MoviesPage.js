@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { fetchSearchMovies } from "../services/api";
-import { onError } from "../services/messages";
+import { onError, onWarning } from "../services/messages";
 import MovieList from "../components/MovieList/MovieList";
 import Searchbar from "../components/Searchbar";
 
@@ -31,6 +31,9 @@ export default function MoviesPage() {
     }
     fetchSearchMovies(query, page)
       .then((data) => {
+        if (data.results.length === 0) {
+          onWarning("No such information");
+        }
         setMovies((prevState) => [...prevState, ...data.results]);
       })
       .catch((error) => {

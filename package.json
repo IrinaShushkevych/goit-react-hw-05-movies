@@ -2,7 +2,6 @@
   "name": "goit-react-hw-05-movies",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://IrinaShushkevych.github.io/goit-react-hw-05-movies",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.2.7",
@@ -20,7 +19,7 @@
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "netlify deploy -p --httpProxy=http://195.230.131.201:3128"
   },
   "eslintConfig": {
     "extends": [

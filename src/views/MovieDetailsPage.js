@@ -13,15 +13,26 @@ export default function MovieDetailsPage() {
   const location = useLocation();
 
   const onClickButton = (type) => {
-    const loc = location.state.prevLoc
-      ? location.state.prevLoc
-      : location.pathname;
+    let loc = "";
+    if (!location.state) {
+      const str = location.pathname.split("/");
+      console.log(str);
+      loc = `/${str[1]}/${str[2]}`;
+    } else {
+      loc = location.state.prevLoc ? location.state.prevLoc : location.pathname;
+    }
     navigate(`${loc}/${type}`, { state: { ...location.state, prevLoc: loc } });
   };
 
   const onGoBack = () => {
-    const strLoc = `${location.state.goBackPage ?? "/"}${
-      location.state.goBackSearch ?? ""
+    const strLoc = `${
+      location.state && location.state.goBackPage
+        ? location.state.goBackPage
+        : "/"
+    }${
+      location.state && location.state.goBackSearch
+        ? location.state.goBackSearch
+        : ""
     }`;
     navigate(strLoc);
   };
