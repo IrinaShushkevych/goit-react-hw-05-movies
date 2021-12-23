@@ -17,6 +17,7 @@ export default function MovieCast() {
       .then((data) => {
         if (data.cast.length === 0) {
           onWarning("No such information");
+          return;
         }
         setMovie(data);
       })

@@ -8,7 +8,6 @@ export default function Headers() {
     <List>
       <Item>
         <NavLink
-          exact="true"
           to="/"
           className={({ isActive }) => (isActive ? s.activeLink : s.link)}
         >

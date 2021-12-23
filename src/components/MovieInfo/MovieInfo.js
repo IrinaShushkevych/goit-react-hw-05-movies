@@ -13,9 +13,9 @@ export default function MovieInfo() {
   useEffect(() => {
     fetchMovieDetails(idMovie)
       .then((data) => {
-        console.log(data);
         if (!data) {
           onWarning("No such information");
+          return;
         }
         setMovie(data);
       })

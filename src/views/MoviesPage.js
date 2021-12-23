@@ -33,6 +33,7 @@ export default function MoviesPage() {
       .then((data) => {
         if (data.results.length === 0) {
           onWarning("No such information");
+          return;
         }
         setMovies((prevState) => [...prevState, ...data.results]);
       })

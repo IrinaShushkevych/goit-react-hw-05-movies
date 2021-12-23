@@ -14,6 +14,7 @@ export default function MovieReview() {
       .then((data) => {
         if (data.results.length === 0) {
           onWarning("No such information");
+          return;
         }
         setMovie(data);
       })

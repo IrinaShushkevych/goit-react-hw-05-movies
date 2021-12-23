@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import Headers from "./components/Headers";
-import { Container } from "./components/Container/Container";
+import { Container } from "./components/Container/Container.styled";
 import Loader from "./components/Loader";
 import "./App.css";
 
@@ -16,7 +16,7 @@ function App() {
       <Headers />
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/movies/:id/*" element={<MovieDetailsPage />} />
           <Route path="movies" element={<MoviesPage />} />
           <Route path="*" element={<Navigate to="/" />} />

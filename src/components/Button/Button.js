@@ -7,4 +7,5 @@ export default function OwnButton({ children, onClick }) {
 
 OwnButton.propTypes = {
   onClick: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
 };
