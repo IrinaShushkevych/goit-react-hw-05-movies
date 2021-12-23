@@ -10,12 +10,16 @@ export default function MovieReview() {
   const [movie, setMovie] = useState({});
 
   useEffect(() => {
-    fetchMovieReviews(idMovie).then((data) => {
-      if (data.results.length === 0) {
-        onWarning("No such information");
-      }
-      setMovie(data);
-    });
+    fetchMovieReviews(idMovie)
+      .then((data) => {
+        if (data.results.length === 0) {
+          onWarning("No such information");
+        }
+        setMovie(data);
+      })
+      .catch((error) => {
+        onWarning(error.message);
+      });
   }, [idMovie]);
 
   return (

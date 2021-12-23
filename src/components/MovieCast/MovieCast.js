@@ -13,12 +13,16 @@ export default function MovieCast() {
   const [movie, setMovie] = useState({});
 
   useEffect(() => {
-    fetchMovieCredits(idMovie).then((data) => {
-      if (data.cast.length === 0) {
-        onWarning("No such information");
-      }
-      setMovie(data);
-    });
+    fetchMovieCredits(idMovie)
+      .then((data) => {
+        if (data.cast.length === 0) {
+          onWarning("No such information");
+        }
+        setMovie(data);
+      })
+      .catch((error) => {
+        onWarning(error.message);
+      });
   }, [idMovie]);
 
   return (

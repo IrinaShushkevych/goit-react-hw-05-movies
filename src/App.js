@@ -16,9 +16,10 @@ function App() {
       <Headers />
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route exact path="/" element={<HomePage />} />
           <Route path="/movies/:id/*" element={<MovieDetailsPage />} />
           <Route path="movies" element={<MoviesPage />} />
+          <Route path="*" element={<h1>No page</h1>} />
         </Routes>
       </Suspense>
     </Container>

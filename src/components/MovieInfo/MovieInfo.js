@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { fetchMovieDetails } from "../../services/api";
-
+import { onWarning } from "../../services/messages";
 import noImg from "../../images/no-image.jpg";
 import { ContainerInfo } from "./ContainerInfo.styled";
 import { Image } from "./Image.styled";
@@ -11,9 +11,17 @@ export default function MovieInfo() {
   const [movie, setMovie] = useState({});
 
   useEffect(() => {
-    fetchMovieDetails(idMovie).then((data) => {
-      setMovie(data);
-    });
+    fetchMovieDetails(idMovie)
+      .then((data) => {
+        console.log(data);
+        if (!data) {
+          onWarning("No such information");
+        }
+        setMovie(data);
+      })
+      .catch((error) => {
+        onWarning(error.message);
+      });
   }, [idMovie]);
 
   const genres = movie.genres
