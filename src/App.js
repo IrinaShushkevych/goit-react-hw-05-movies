@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Headers from "./components/Headers";
 import { Container } from "./components/Container/Container";
@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/movies/:id/*" element={<MovieDetailsPage />} />
           <Route path="movies" element={<MoviesPage />} />
-          <Route path="*" element={<h1>No page</h1>} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>
     </Container>
