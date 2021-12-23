@@ -16,7 +16,6 @@ export default function MovieDetailsPage() {
     let loc = "";
     if (!location.state) {
       const str = location.pathname.split("/");
-      console.log(str);
       loc = `/${str[1]}/${str[2]}`;
     } else {
       loc = location.state.prevLoc ? location.state.prevLoc : location.pathname;
