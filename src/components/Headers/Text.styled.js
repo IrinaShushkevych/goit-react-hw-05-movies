@@ -6,6 +6,7 @@ export const Text = styled.p`
   top: 0;
   right: 0;
   padding: 20px;
+  margin: 0;
   color: blacck;
   opacity: 0.2;
 `;
