@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import s from "./Headers.module.css";
 import { List } from "./List.styled";
 import { Item } from "./Item.styled";
+import { Text } from "./Text.styled";
 
 export default function Headers() {
   return (
@@ -22,6 +23,7 @@ export default function Headers() {
           Movies
         </NavLink>
       </Item>
+      <Text>ДЗ виконала Ірина Шушкевич (GOIT FSOnline37)</Text>
     </List>
   );
 }

@@ -38,8 +38,21 @@ export const fetchMovieReviews = (id) => {
   return fetching(url);
 };
 
+export const fetchMovieVideos = (id) => {
+  const urlOption = new URLSearchParams({
+    api_key: keyAPI,
+    language: "en-US",
+  });
+  return fetching(`${BASE_URL}?${urlOption}`);
+};
+
 // /trending/get-trending список самых популярных фильмов на сегодня для создания коллекции на главной странице.
 // /search/search-movies поиск кинофильма по ключевому слову на странице фильмов.
 // /movies/get-movie-details запрос полной информации о фильме для страницы кинофильма.
 // /movies/get-movie-credits запрос информации о актёрском составе для страницы кинофильма.
 // /movies/get-movie-reviews запрос обзоров для страницы кинофильма.
+
+//https://api.themoviedb.org/3/movie/{movie_id}/images?api_key=<<api_key>>&language=en-US  images
+//https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=<<api_key>>&language=en-US&page=1 get similar movie
+//https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=<<api_key>>&language=en-US get videos
+//https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key=<<api_key>>&language=en-US&page=1 recommendation
