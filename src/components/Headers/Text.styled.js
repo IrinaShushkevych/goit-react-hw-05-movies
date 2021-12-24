@@ -8,5 +8,5 @@ export const Text = styled.p`
   padding: 20px;
   margin: 0;
   color: blacck;
-  opacity: 0.2;
+  opacity: 0.1;
 `;

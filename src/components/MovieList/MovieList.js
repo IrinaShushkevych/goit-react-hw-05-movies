@@ -1,3 +1,4 @@
+//ДЗ виконала Ірина Шушкевич (GOIT FSOnline37)
 import PropTypes from "prop-types";
 import { List } from "./List.styled";
 import MoviesCard from "../MoveCard";
