@@ -23,7 +23,7 @@ export default function Headers() {
           Movies
         </NavLink>
       </Item>
-      <Text>ДЗ виконала Ірина Шушкевич (GOIT FSOnline37)</Text>
+      {/* <Text>ДЗ виконала Ірина Шушкевич (GOIT FSOnline37)</Text> */}
     </List>
   );
 }
