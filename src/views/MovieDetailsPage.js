@@ -8,6 +8,7 @@ import Loader from "../components/Loader";
 
 const MovieCast = lazy(() => import("../components/MovieCast"));
 const MovieReview = lazy(() => import("../components/MovieReview"));
+const MovieTrailers = lazy(() => import("../components/MovieTrailers"));
 
 export default function MovieDetailsPage() {
   const navigate = useNavigate();
@@ -51,12 +52,20 @@ export default function MovieDetailsPage() {
         >
           Review
         </Button>
+        <Button
+          onClick={() => {
+            onClickButton("trailers");
+          }}
+        >
+          Trailers
+        </Button>
       </div>
 
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="cast" element={<MovieCast />} />
           <Route path="review" element={<MovieReview />} />
+          <Route path="trailers" element={<MovieTrailers />} />
         </Routes>
       </Suspense>
     </>

@@ -40,10 +40,10 @@ export const fetchMovieReviews = (id) => {
 
 export const fetchMovieVideos = (id) => {
   const urlOption = new URLSearchParams({
-    api_key: keyAPI,
+    api_key: "a907caf8c46067564d1786718be1cb84",
     language: "en-US",
   });
-  return fetching(`${BASE_URL}?${urlOption}`);
+  return fetching(`${BASE_URL}/movie/${id}/videos?${urlOption}`);
 };
 
 // /trending/get-trending список самых популярных фильмов на сегодня для создания коллекции на главной странице.
