@@ -1,4 +1,4 @@
-//ДЗ виконала Ірина Шушкевич (GOIT FSOnline37)
+//created by Irina Shushkevych
 import { useState, useEffect } from "react";
 
 import { fetchTrendidngMovies } from "../services/api";

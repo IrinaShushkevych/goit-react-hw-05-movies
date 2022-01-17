@@ -1,3 +1,4 @@
+//created by Irina Shushkevych
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Image } from "./Img.styled";

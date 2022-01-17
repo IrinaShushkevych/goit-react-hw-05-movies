@@ -1,4 +1,4 @@
-//ДЗ виконала Ірина Шушкевич (GOIT FSOnline37)
+//created by Irina Shushkevych
 import { lazy, Suspense } from "react";
 import { useNavigate, useLocation, Routes, Route } from "react-router";
 

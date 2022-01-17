@@ -1,3 +1,4 @@
+//created by Irina Shushkevych
 import { Image } from "./Img.styled";
 import { Title, TitleParagraph, Text } from "./Title.styled";
 import { CardInfo, CardIImage } from "./CardInfo.styled";

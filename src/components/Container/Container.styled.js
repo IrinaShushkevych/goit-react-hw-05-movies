@@ -1,4 +1,4 @@
-//ДЗ виконала Ірина Шушкевич (GOIT FSOnline37)
+//created by Irina Shushkevych
 import styled from "@emotion/styled";
 
 export const Container = styled.div`

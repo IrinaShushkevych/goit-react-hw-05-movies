@@ -1,3 +1,4 @@
+//created by Irina Shushkevych
 import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 

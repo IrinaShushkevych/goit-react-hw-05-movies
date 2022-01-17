@@ -1,3 +1,4 @@
+//created by Irina Shushkevych
 import styled from "@emotion/styled";
 
 export const CardInfo = styled.div`

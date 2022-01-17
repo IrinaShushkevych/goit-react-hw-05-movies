@@ -1,3 +1,4 @@
+//created by Irina Shushkevych
 import { toast } from "react-toastify";
 
 const option = {
